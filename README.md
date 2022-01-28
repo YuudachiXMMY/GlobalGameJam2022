@@ -1,5 +1,7 @@
 # GlobalGameJam2022
-This is the Development Repository for Global Game Jam 2022.
+This is the Development Repository for Global Game Jam 2022
+
+Our Discord Channel: [https://discord.gg/ktbFHBFC](https://discord.gg/ktbFHBFC)
 
 # Builds
 

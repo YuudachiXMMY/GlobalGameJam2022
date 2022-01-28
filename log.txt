@@ -1,6 +1,6 @@
 Wed Jan 26 17:07:41 2022
 Windows-10-10.0.19041
-Ren'Py 7.4.11.2266
+Ren'Py 7.4.11.2266 
  
 
 Bootstrap to the start of init.init took 0.09s

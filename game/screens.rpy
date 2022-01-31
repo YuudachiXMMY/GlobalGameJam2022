@@ -5,6 +5,9 @@
 init offset = -1
 
 
+define config.main_menu_music = 'audio/body.ogg'
+
+
 ################################################################################
 ## 样式
 ################################################################################
@@ -81,6 +84,35 @@ style frame:
 ## 游戏内界面
 ################################################################################
 
+
+## Overlay ########################################################################
+##
+##
+default scene_pos = 0
+
+screen overlay(s1= None, s2= None):
+
+    zorder 200
+
+    # Settings
+    # imagebutton:
+    #     align(.98, .02)
+    #     auto 'settings_btn_%s'
+    #     action Play('sound', 'audio/Wood_dig1.ogg'), NullAction()
+
+    # Switch Screen
+    if s2 is not None and not renpy.get_screen(s2):
+        imagebutton:
+            align(.95, .5)
+            auto 'right_btn_%s'
+            action Play('sound', 'audio/Wood_dig1.ogg'), Show(s2), Hide(s1, dissolve)
+    elif s1 is not None and not renpy.get_screen(s1):
+        imagebutton:
+            align(.05, .5)
+            auto 'left_btn_%s'
+            action Play('sound', 'audio/Wood_dig1.ogg'), Show(s1), Hide(s2, dissolve)
+    else:
+        pass
 
 ## 对话界面 ########################################################################
 ##
@@ -238,7 +270,7 @@ screen quick_menu():
     ## 确保该菜单出现在其他界面之上，
     zorder 100
 
-    if quick_menu:
+    if False: # quick_menu:
 
         hbox:
             style_prefix "quick"
@@ -260,7 +292,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+define quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text
@@ -281,48 +313,52 @@ style quick_button_text:
 ## 该界面包含在标题菜单和游戏菜单中，并提供导航到其他菜单，以及启动游戏。
 
 screen navigation():
+    zorder 101
 
-    vbox:
-        style_prefix "navigation"
+    # vbox:
+    #     style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
+    #     xpos gui.navigation_xpos
+    #     yalign 0.5
 
-        spacing gui.navigation_spacing
+    #     spacing gui.navigation_spacing
 
-        if main_menu:
+    if main_menu:
+        style_prefix 'start'
+        use scene1_1(re=False, main=True)
+        textbutton _("START") action Start():
+            align(.5, .55)
+        textbutton _("QUIT") action Quit(confirm=not main_menu):
+            align(.5, .7)
 
-            textbutton _("开始游戏") action Start()
+        # else:
 
-        else:
+        #     textbutton _("历史") action ShowMenu("history")
 
-            textbutton _("历史") action ShowMenu("history")
+        #     textbutton _("保存") action ShowMenu("save")
 
-            textbutton _("保存") action ShowMenu("save")
+        # textbutton _("读取游戏") action ShowMenu("load")
 
-        textbutton _("读取游戏") action ShowMenu("load")
+        # textbutton _("设置") action ShowMenu("preferences")
 
-        textbutton _("设置") action ShowMenu("preferences")
+        # if _in_replay:
 
-        if _in_replay:
+        #     textbutton _("结束回放") action EndReplay(confirm=True)
 
-            textbutton _("结束回放") action EndReplay(confirm=True)
+        # elif not main_menu:
 
-        elif not main_menu:
+        #     textbutton _("标题界面") action MainMenu()
 
-            textbutton _("标题界面") action MainMenu()
+        # textbutton _("关于") action ShowMenu("about")
 
-        textbutton _("关于") action ShowMenu("about")
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        #     ## “帮助”对移动设备来说并非必需或相关。
+        #     textbutton _("帮助") action ShowMenu("help")
 
-            ## “帮助”对移动设备来说并非必需或相关。
-            textbutton _("帮助") action ShowMenu("help")
-
-        if renpy.variant("pc"):
+        # if renpy.variant("pc"):
 
             ## “退出”按钮在 iOS 上被禁止设置，在安卓和网页上也不是必需的。
-            textbutton _("退出") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -335,6 +371,8 @@ style navigation_button:
 style navigation_button_text:
     properties gui.button_text_properties("navigation_button")
 
+style start_button_text:
+    color '#000000'
 
 ## 标题菜单界面 ######################################################################
 ##
@@ -1364,6 +1402,7 @@ style nvl_dialogue:
     xsize gui.nvl_text_width
     min_width gui.nvl_text_width
     text_align gui.nvl_text_xalign
+    yalign 0.5
     layout ("subtitle" if gui.nvl_text_xalign else "tex")
 
 style nvl_thought:
@@ -1399,7 +1438,7 @@ screen quick_menu():
 
     zorder 100
 
-    if quick_menu:
+    if False: #quick_menu:
 
         hbox:
             style_prefix "quick"

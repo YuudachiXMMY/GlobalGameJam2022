@@ -53,16 +53,16 @@ define gui.interface_text_color = u'#404040'
 ## 字体和字体大小 #####################################################################
 
 ## 用于游戏内文本的字体。
-define gui.text_font = "SourceHanSansLite.ttf"
+define gui.text_font = "经典中圆简.ttf"
 
 ## 用于角色名称的字体。
-define gui.name_text_font = "SourceHanSansLite.ttf"
+define gui.name_text_font = "经典中圆简.ttf"
 
 ## 用于游戏外文本的字体。
-define gui.interface_text_font = "SourceHanSansLite.ttf"
+define gui.interface_text_font = "经典中圆简.ttf"
 
 ## 普通对话文本的大小。
-define gui.text_size = 22
+define gui.text_size = 80
 
 ## 角色名称的大小。
 define gui.name_text_size = 30
@@ -337,30 +337,30 @@ define gui.history_text_xalign = 0.0
 ## NVL 模式屏幕显示 NVL 模式的角色所产生的对话。
 
 ## NVL 模式背景窗口的背景边框。
-define gui.nvl_borders = Borders(0, 10, 0, 20)
+define gui.nvl_borders = Borders(0, 0, 0, 0)
 
 ## Ren'Py 所显示的 NVL 模式条目的最大数量。如果要显示更多条目，则最早的条目将被
 ## 删除。
 define gui.nvl_list_length = 6
 
 ## NVL 模式条目的高度。将此设置为 None 可使条目动态调整高度。
-define gui.nvl_height = 115
+define gui.nvl_height = None
 
 ## 当 gui.nvl_height 为 None 时，NVL 模式条目之间的间距，以及 NVL 模式条目和 NVL
 ## 模式菜单之间的间距。
-define gui.nvl_spacing = 10
+define gui.nvl_spacing = None
 
 ## 所指定叙述角色的标签的坐标、宽度和对齐方式。
 define gui.nvl_name_xpos = 430
 define gui.nvl_name_ypos = 0
 define gui.nvl_name_width = 150
-define gui.nvl_name_xalign = 1.0
+define gui.nvl_name_xalign = 0.5
 
 ## 对话文本的坐标、宽度和对齐方式。
-define gui.nvl_text_xpos = 450
-define gui.nvl_text_ypos = 8
-define gui.nvl_text_width = 590
-define gui.nvl_text_xalign = 0.0
+define gui.nvl_text_xpos = 640
+define gui.nvl_text_ypos = 310
+define gui.nvl_text_width = 1280
+define gui.nvl_text_xalign = 0.5
 
 ## nvl_thought 文本（由 nvl_narrator 字符表示的文本）的位置，宽度和对齐方式。
 define gui.nvl_thought_xpos = 240

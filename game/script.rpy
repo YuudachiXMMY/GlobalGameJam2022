@@ -1,30 +1,110 @@
-﻿# 游戏的脚本可置于此文件中。
+﻿define narrator = Character(None, kind=nvl)
 
-# 声明此游戏使用的角色。颜色参数可使角色姓名着色。
-
-define e = Character("艾琳")
-
-
-# 游戏在此开始。
 
 label start:
 
-    # 显示一个背景。此处默认显示占位图，但您也可以在图片目录添加一个文件
-    # （命名为“bg room.png”或“bg room.jpg”）来显示。
+    $ touch_times = 0
+    $ stage = 1
+    $ wstage = 1
+    $ accounting_re = 10
 
-    scene bg room
+    $ s3_b_car = False
+    $ s3_b_game = False
 
-    # 显示角色立绘。此处使用了占位图，但您也可以在图片目录添加命名为
-    # “eileen happy.png”的文件来将其替换掉。
+    # Scene 1
+    play music 'audio/pre.ogg'
+    queue music 'audio/body.ogg'
 
-    show eileen happy
+    show screen overlay()
+    call screen scene1_1() with dissolve
+    hide screen overlay
 
-    # 此处显示各行对话。
+    scene black with dissolve
+    narrator 'IS IT ...'
+    nvl clear
+    'DEAD {w}?'
 
-    e "您已创建一个新的 Ren'Py 游戏。"
+    # Scene 2
+    show screen overlay('scene2_1', 'scene2_2') with dissolve
+    call screen scene2_1() with dissolve
+    hide screen overlay
 
-    e "当您完善了故事、图片和音乐之后，您就可以向全世界发布了！"
+    nvl clear
+    scene black with dissolve
+    narrator 'EVERYTHING{p}WILL BE ...{p}GOOD{w}, RIGHT?'
 
-    # 此处为游戏结尾。
+    # Scene 3
+    show screen overlay('scene3_1', 'scene3_2')
+    call screen scene3_1() with dissolve
+    hide screen overlay
+
+    nvl clear
+    scene black with dissolve
+    narrator 'IS HE ...'
+
+    # Scene 4
+    play music 'audio/body_under.ogg'
+    show screen overlay()
+    call screen scene4_1() with dissolve
+    hide screen overlay
+
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'I HAVE TO{p}LEAVE.'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator '......'
+
+    # Scene R1
+    show screen overlay()
+    call screen r1_1() with dissolve
+    hide screen overlay
+
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'WHERE\nIS\nTHIS PLACE?'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'IT LOOKS LIKE ...{p}ANOTHER{p}ME{w}?'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'THE {w}REAL {w}ME{w} ?'
+
+    # Scene R2
+    show screen overlay
+    call screen r2_1() with dissolve
+    hide screen overlay
+
+    nvl clear
+    scene black with Dissolve(3)
+    narrator '......'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'THAT WAS{p}MY BROTHER {w}?'
+
+    # Scene R3
+    queue music 'audio/body.ogg'
+    show screen overlay('r3_1', 'r3_2')
+    call screen r3_1() with dissolve
+    hide screen overlay
+
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'THAT WAS{p}MY MOTHER {w}?'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator '......'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'THIS{w} WAS{w} ALSO{p}MY LIFE{w} ?'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator '......'
+    nvl clear
+    scene black with Dissolve(3)
+    narrator 'MAYBE{p}I NEED TO{p}GO BACK{p}HOME{w} ?'
+
+    scene black with Dissolve(3)
+    call screen scene1_1(re=True) with dissolve
 
     return

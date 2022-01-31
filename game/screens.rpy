@@ -322,10 +322,21 @@ screen navigation():
     #     yalign 0.5
 
     #     spacing gui.navigation_spacing
+    modal True
 
     if main_menu:
         style_prefix 'start'
-        use scene1_1(re=False, main=True)
+
+        add "scene1_1_bg"
+        add "scene1_1_phone_bottom"
+
+        add 'scene1_1_bird_move':
+            align(.22, .3)
+        add "scene1_1_phone_top_animated"
+        # use scene1_1
+
+        add 'logo' align(.5, .3) zoom 0.7
+
         textbutton _("START") action Start():
             align(.5, .55)
         textbutton _("QUIT") action Quit(confirm=not main_menu):

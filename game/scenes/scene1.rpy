@@ -2,28 +2,21 @@ define bird_actions = ['scene1_1_bird', 'scene1_1_bird_sing', 'scene1_1_bird_mov
 default touch_times = 0
 default accounting_re = 10
 
-screen scene1_1(re=False, main=False, touched=False, bird_rand= renpy.random.randint(1, 3)):
-    if main_menu:
-
-        textbutton _("START") action Start():
-            align(.5, .5)
-        textbutton _("QUIT") action Quit(confirm=not main_menu):
-            align(.5, .6)
-
+screen scene1_1(re=False, touched=False, bird_rand= renpy.random.randint(1, 3)):
     zorder 100
     use overlay
 
     add "scene1_1_bg"
     add "scene1_1_phone_bottom"
 
-    if not main and not re and touch_times > 5:
+    if not re and touch_times > 5:
         add "scene1_1_phone_top"
         timer 0.5 action Show("ringTone", message="............", time=20)
-    elif not main and bird_rand == 1:
+    elif bird_rand == 1:
         imagebutton:
             idle "scene1_1_phone_top_animated"
             action Play('sound', 'audio/Wood_dig1.ogg'), Show("ringTone", message="Play with the Bird......")
-    elif not main and bird_rand == 2:
+    elif bird_rand == 2:
         imagebutton:
             idle "scene1_1_phone_top_animated"
             action Play('sound', 'audio/Wood_dig1.ogg'), Show("ringTone", message="This Bird looks Fun...")
@@ -32,7 +25,7 @@ screen scene1_1(re=False, main=False, touched=False, bird_rand= renpy.random.ran
             idle "scene1_1_phone_top_animated"
             action Play('sound', 'audio/Wood_dig1.ogg'), Show("ringTone", message="Tweet, tweet, tweet...")
 
-    if not main and not re and touch_times > 5:
+    if not re and touch_times > 5:
         imagebutton:
             align(.22, .3)
             idle 'scene1_1_bird_deads'
@@ -44,10 +37,10 @@ screen scene1_1(re=False, main=False, touched=False, bird_rand= renpy.random.ran
                 idle str(bird_actions[0])
             else:
                 idle str(bird_actions[renpy.random.randint(1, 2)])
-            if not main and not re and touch_times >= 5:
+            if not re and touch_times >= 5:
                 action Play('sound', 'audio/mice.ogg'), SetVariable("touch_times", touch_times+1), Hide('scene1_1'), Show('scene1_1', touched=True)
             else:
-                action Play('sound', 'audio/bird.ogg'), SetVariable("touch_times", touch_times+1), Hide('scene1_1'), Show('scene1_1',re=re, main=main, touched=True)
+                action Play('sound', 'audio/bird.ogg'), SetVariable("touch_times", touch_times+1), Hide('scene1_1'), Show('scene1_1',re=re, touched=True)
     # add "scene1_1_phone_top_animated"
     if re:
         timer 3 action Hide('scene1'), Show('final_screen')
@@ -60,7 +53,7 @@ screen final_screen():
         anchor(0, 0) pos(-5, -5) zoom 1.0
         at transform:
             linear 10 pos(0, 0) zoom 0.486
-            linear 25 ypos -2000
+            linear 30 ypos -3720
 
 screen ringTone(message='', time=7):
     zorder 201

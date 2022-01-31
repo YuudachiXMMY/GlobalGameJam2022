@@ -19,6 +19,9 @@ image cage:
 image final:
     'images/final.png'
 
+image logo:
+    'gui/logo.png'
+
 ######################################################
 # GUIs
 image settings_btn_idle:

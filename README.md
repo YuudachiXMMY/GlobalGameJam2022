@@ -1,27 +1,30 @@
 # GlobalGameJam2022
+
 This is the Development Repository for Global Game Jam 2022
 
 Our Discord Channel: [https://discord.gg/ktbFHBFC](https://discord.gg/ktbFHBFC)
 
 # Builds
 
-Currently there's no build for the game :(
+We just finished our Global Game Jam build! Feel free to check it :)
 
-Latest Release: [None]()
+Latest Release: [ggj-v0.1.0](https://github.com/YuudachiXMMY/GlobalGameJam2022/releases/tag/ggj-v0.1.0)
 
-Latest Build: [None]()
+Latest Build: [ggj-v0.1.0](https://github.com/YuudachiXMMY/GlobalGameJam2022/releases/tag/ggj-v0.1.0)
 
 ## Release History
 
-|  Build   |  Dates  |  Notes  |
+|  Builds   |  Dates  |  Notes  |
 |  ----  |  ----  |  ----  |
-|  None  |  None  |  None  |
+|  [GGJ-v0.1.0](https://github.com/YuudachiXMMY/GlobalGameJam2022/releases/tag/ggj-v0.1.0)  |  2022.02.30  |  Published on Global Game Jam 2022  |
 
-# Directories
+# Dev Guide
+
+## Directories
 
 Please follow the following directory structures to submit or change files
 
-|  Directory   |  Contents  |
+|  Directories   |  Contents  |
 |  ----  | ----  |
 |  game  |  Codes  |
 |  builds  |  Game Builds  |
@@ -31,12 +34,21 @@ Please follow the following directory structures to submit or change files
 |  files/images  |  Background and Character Pictures  |
 |  files/miscs  |  Misc Files  |
 
-# Branches
+## fonts
+
+Usage of fonts
+
+|  Fonts   |  Notes  |
+|  ----  | ----  |
+|  经典中圆简.ttf  | N/A  |
+|  站酷高端黑修订版1.13.ttf  | N/A  |
+|  SourceHanSansLite.ttf  | N/A  |
+
+## Branches
 
 Please follow the following branches instructions to submit or change files
 
-|  Branch   |  Notes  |
+|  Branches   |  Notes  |
 |  ----  | ----  |
 |  main  |  Should be modified only by the owner  |
-|  test1  |  Used to test functions and new features  |
 |  backup  |  Used to trace back changes  |

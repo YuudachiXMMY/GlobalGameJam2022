@@ -3,6 +3,20 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+*.mp3
+builds/
+saves/
+cache/
+*.rpyc
+.vscode/
+
+# Specific file
+traceback.txt
+errors.txt
+log.txt
+project.json
+.android.json
+
 # C extensions
 *.so
 
